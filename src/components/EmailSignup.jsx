@@ -38,7 +38,7 @@ function SignupForm({ className = "" }) {
         return;
       }
 
-      // Save to Firestore
+      // Save to Firestore first
       await addDoc(collection(db, "subscribers"), {
         email: trimmedEmail,
         tag: "selah-girl-society",
@@ -48,10 +48,11 @@ function SignupForm({ className = "" }) {
         hasReceivedDropEmail: false,
       });
 
-      // Send welcome email via our secure API endpoint
+      // Send welcome email via API
       try {
-        const apiUrl = `${window.location.origin}/api/send-welcome-email`;
+        const apiUrl = `/api/send-welcome-email`;
         console.log("Calling API endpoint:", apiUrl);
+        
         const emailResponse = await fetch(apiUrl, {
           method: "POST",
           headers: {
@@ -61,18 +62,15 @@ function SignupForm({ className = "" }) {
         });
 
         if (emailResponse.ok) {
-          console.log("Welcome email sent successfully");
+          const responseData = await emailResponse.json();
+          console.log("Welcome email sent successfully:", responseData);
         } else {
-          // Only try to parse JSON if response has content
-          try {
-            const errorData = await emailResponse.json();
-            console.error("Failed to send welcome email:", errorData);
-          } catch (parseErr) {
-            console.error("Failed to send welcome email, status:", emailResponse.status);
-          }
+          const errorText = await emailResponse.text();
+          console.error("Failed to send welcome email:", errorText);
         }
       } catch (emailErr) {
         console.error("Welcome email failed (subscriber saved):", emailErr);
+        // Don't show error to user since subscriber was saved
       }
 
       setEmail("");
