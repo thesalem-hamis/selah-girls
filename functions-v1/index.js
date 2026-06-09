@@ -15,7 +15,7 @@ const resend = new Resend(process.env.RESEND_API_KEY);
 
 const FROM_EMAIL = "Selah Girl Society <hello@contact.selahgirls.com>";
 const DISCOUNT_CODE = "SELAH5";
-const DROP_DATE = "September 1, 2026";
+const DROP_DATE = "July 1, 2026";
 
 function buildWelcomeEmail(email) {
   return `
