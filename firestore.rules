@@ -1,0 +1,28 @@
+rules_version = '2';
+
+service cloud.firestore {
+  match /databases/{database}/documents {
+    match /subscribers/{subscriberId} {
+      // Allow reading only to check for duplicate email (query by email field)
+      allow read: if request.auth == null
+        && resource == null; // only allow if checking existence (query)
+
+      // Simpler: allow list queries so duplicate check works
+      allow list: if true;
+
+      // Allow creating new subscribers from the signup form
+      allow create: if request.resource.data.email is string
+        && request.resource.data.tag == 'selah-girl-society'
+        && request.resource.data.status == 'active'
+        && request.resource.data.hasReceivedWelcomeEmail == false
+        && request.resource.data.hasReceivedDropEmail == false;
+
+      // No client updates or deletes
+      allow update, delete: if false;
+    }
+
+    match /{document=**} {
+      allow read, write: if false;
+    }
+  }
+}
