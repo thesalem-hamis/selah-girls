@@ -78,6 +78,21 @@ function StarIcon({ size = 16, color = "#E91E8C", style = {} }) {
   );
 }
 
+function FourPointStar({ size = 16, color = "#E91E8C", style = {} }) {
+  return (
+    <svg
+      width={size}
+      height={size}
+      viewBox="0 0 16 16"
+      fill={color}
+      aria-hidden="true"
+      style={{ display: "inline-block", verticalAlign: "middle", ...style }}
+    >
+      <path d="M8 0L9.2 6.8H16L10.4 11L12.4 18L8 14L3.6 18L5.6 11L0 6.8H6.8L8 0Z" />
+    </svg>
+  );
+}
+
 function InstagramIcon() {
   return (
     <svg
@@ -172,7 +187,7 @@ export default function HeroSection() {
                 </div>
 
                 <div style={{ marginTop: "30px", marginBottom: "-22px" }}>
-                  <StarIcon size={9} color="#E91E8C" style={{ opacity: 0.7 }} />
+                  <FourPointStar size={9} color="#E91E8C" style={{ opacity: 0.7 }} />
                 </div>
 
                 <form onSubmit={handleSubmit} className="selah-form-group" noValidate>
@@ -195,7 +210,7 @@ export default function HeroSection() {
                       disabled={status === "loading" || status === "success"}
                       aria-label="Submit"
                     >
-                      <StarIcon size={15} color="#E91E8C" />
+                      <FourPointStar size={15} color="#E91E8C" />
                     </button>
                   </div>
 
@@ -211,9 +226,6 @@ export default function HeroSection() {
                           ? "You're in ✨"
                           : "Join the Society"}
                     </span>
-                    <div className="selah-btn-star">
-                      <StarIcon size={13} color="rgba(255,255,255,0.9)" />
-                    </div>
                   </button>
 
                   {message && (
