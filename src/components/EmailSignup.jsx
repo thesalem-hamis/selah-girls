@@ -419,22 +419,14 @@ export async function sendWelcomeEmail(email) {
         
         <div class="footer">
           <div class="signature">
-            with love,<br>
-            Penelope Louise & Peace
-          </div>
-          <div style="font-size: 13px; color: #8b5e5e;">
-            Founders: selah girl society
+            With love, Peace &amp; Penelope Louise<br>
+            <span style="font-size: 13px;">Founders | Selah Girl Society</span>
           </div>
           <div class="ps-note">
             p.s. reply to this email anytime — I actually read them. <span class="heart">🤍</span>
           </div>
-          
           <div class="social-links">
-            <a href="#" class="social-link">instagram</a>
-            <span style="color: #d4a5a5;">•</span>
-            <a href="#" class="social-link">website</a>
-            <span style="color: #d4a5a5;">•</span>
-            <a href="#" class="social-link">shop</a>
+            <a href="https://www.instagram.com/selah.girl.7?igsh=MzRlODBiNWFlZA==" class="social-link">instagram</a>
           </div>
         </div>
       </div>
