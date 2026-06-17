@@ -177,8 +177,8 @@ export default function App() {
 
       {/* ===== COUNTDOWN ===== */}
       <section className="countdown-sky relative py-8 sm:py-20   overflow-hidden">
-        <Sparkle className="absolute top-8 left-1/4 text-xs text-gray-500 opacity-60" />
-        <Sparkle className="absolute bottom-10 right-1/4 text-sm opacity-70" />
+        <Sparkle className="absolute top-8 left-1/4 text-xs text-gray-500 opacity-60 hidden sm:block" />
+        <Sparkle className="absolute bottom-10 right-1/4 text-sm opacity-70 hidden sm:block" />
 
         <div className="max-w-2xl mx-auto text-center relative z-10">
           <div className="flex justify-center  gap-4" aria-hidden>
