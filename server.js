@@ -26,14 +26,15 @@ function buildWelcomeEmail(email) {
         <h1 style="color: #E91E8C; font-size: 24px; margin-bottom: 4px;">Welcome to Selah Girl Society</h1>
         <p style="color: #888888; font-size: 13px; letter-spacing: 0.1em; margin-top: 0;">You're officially on the list</p>
         <p>Hey girl!</p>
-        <p>You're now first in line for every drop, early access, and exclusive savings from <strong>Selah Girl Society</strong> - faith apparel made for daughters of the Most High.</p>
+        <p>You're now first in line for every drop, early access, and exclusive savings from <strong>Selah Girl Society</strong> - faith apparel made for the trendy woman of God.</p>
         <div style="background: #fff0f7; border-left: 3px solid #E91E8C; padding: 16px 20px; margin: 24px 0; border-radius: 4px;">
           <p style="margin: 0; font-size: 14px;">Use code <strong style="color: #E91E8C; font-size: 16px;">${DISCOUNT_CODE}</strong> at checkout for <strong>5% off</strong> your first order.</p>
         </div>
         <p>Drop date: <strong>${DROP_DATE}</strong></p>
         <p>We'll send you the link the moment it goes live. Stay close.</p>
-        <p style="margin-top: 32px; color: #555555;">With love,<br/>
-        <em style="font-size: 18px; color: #E91E8C;">Selah Girl Society</em></p>
+        <p style="margin-top: 32px; color: #555555;">With love, Peace &amp; Penelope Louise<br/>
+        <span style="font-size: 13px; color: #888;">Founders | Selah Girl Society</span><br/>
+        <a href="https://www.instagram.com/selah.girl.7?igsh=MzRlODBiNWFlZA==" style="font-size: 12px; color: #E91E8C;">@selah.girl.7</a></p>
         <hr style="border: none; border-top: 1px solid #f0e0eb; margin: 32px 0;" />
         <p style="font-size: 11px; color: #bbbbbb; text-align: center;">You received this because you signed up at selahgirls.com</p>
         <p style="font-size: 11px; color: #bbbbbb; text-align: center;">If you didn't sign up, you can ignore this email.</p>
@@ -52,7 +53,7 @@ app.post('/api/send-welcome-email', async (req, res) => {
       to: email,
       subject: "Welcome to Selah Girl Society",
       html: buildWelcomeEmail(email),
-      text: `Welcome to Selah Girl Society!\n\nYou're now first in line for every drop, early access, and exclusive savings from Selah Girl Society - faith apparel made for daughters of the Most High.\n\nUse code ${DISCOUNT_CODE} at checkout for 5% off your first order.\n\nDrop date: ${DROP_DATE}\n\nWe'll send you the link the moment it goes live.\n\nWith love,\nSelah Girl Society`,
+      text: `Welcome to Selah Girl Society!\n\nYou're now first in line for every drop, early access, and exclusive savings from Selah Girl Society - faith apparel made for the trendy woman of God.\n\nUse code ${DISCOUNT_CODE} at checkout for 5% off your first order.\n\nDrop date: ${DROP_DATE}\n\nWe'll send you the link the moment it goes live.\n\nWith love, Peace & Penelope Louise\nFounders | Selah Girl Society`,
       headers: {
         'X-Entity-Ref-ID': `${Date.now()}-${email}`,
       },
